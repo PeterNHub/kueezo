@@ -1,15 +1,17 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import { Drawer } from "expo-router/drawer";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function AppLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <Drawer>
+      <Drawer.Screen
+        name="(buyer)"
+        options={{ drawerLabel: "Buyer", title: "Buyer" }}
+      />
+      <Drawer.Screen
+        name="(seller)"
+        options={{ drawerLabel: "Seller", title: "Seller" }}
+      />
+      <Drawer.Screen name="(shared)" options={{ drawerItemStyle: { display: "none" } }} />
+    </Drawer>
   );
 }
