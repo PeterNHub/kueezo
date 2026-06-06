@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, Stack } from "expo-router";
 import { Pressable, Text, View, StyleSheet, ScrollView } from "react-native";
-import { COLORS, FONT_SIZES, FONT_FAMILIES } from "../../../constants/theme";
+import { COLORS, FONT_SIZES, FONT_FAMILIES } from "../../constants/theme";
 
 const ActiveRequest = ({ id }: { id: number }) => (
   <Link href={`/(buyer)/demand/${id}`} asChild>
