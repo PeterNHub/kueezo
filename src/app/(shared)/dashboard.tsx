@@ -4,7 +4,7 @@ import { Pressable, Text, View, StyleSheet, ScrollView } from "react-native";
 import { COLORS, FONT_SIZES, FONT_FAMILIES } from "../../constants/theme";
 
 const ActiveRequest = ({ id }: { id: number }) => (
-  <Link href={`/(buyer)/demand/${id}`} asChild>
+  <Link href={`/(shared)/demand/${id}`} asChild>
     <Pressable style={styles.activeRequest}>
       <View style={styles.activeRequestIcon}>
         <Ionicons name="pencil" size={24} color={COLORS.primary} />
@@ -63,7 +63,7 @@ export default function Dashboard() {
           <ActiveRequest id={1} />
         </View>
 
-        <Link href="/create-demand" asChild>
+        <Link href="/(shared)/create-demand" asChild>
           <Pressable style={styles.postDemandButton}>
             <Text style={styles.postDemandButtonText}>POST A DEMAND' FAB</Text>
           </Pressable>

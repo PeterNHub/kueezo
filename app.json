@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "kueezo",
+    "name": "Kueezo",
     "slug": "kueezo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/favicon.png",
     "scheme": "kueezo",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/images/favicon.png"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,11 +28,7 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "android": {
-            "image": "./assets/images/splash-icon.png",
-            "imageWidth": 76
-          }
+          "backgroundColor": "#FFFFFF"
         }
       ]
     ],

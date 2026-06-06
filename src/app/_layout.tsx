@@ -1,17 +1,25 @@
-import { Drawer } from "expo-router/drawer";
+import { Stack } from "expo-router";
+import { AuthProvider, useAuth } from "../context/AuthContext";
+import SharedLayout from "./(shared)/_layout";
 
 export default function AppLayout() {
   return (
-    <Drawer>
-      <Drawer.Screen
-        name="(buyer)"
-        options={{ drawerLabel: "Buyer", title: "Buyer" }}
-      />
-      <Drawer.Screen
-        name="(seller)"
-        options={{ drawerLabel: "Seller", title: "Seller" }}
-      />
-      <Drawer.Screen name="(shared)" options={{ drawerItemStyle: { display: "none" } }} />
-    </Drawer>
+    <AuthProvider>
+      <RootLayout />
+    </AuthProvider>
+  );
+}
+
+function RootLayout() {
+  const { user } = useAuth();
+
+  if (user) {
+    return <SharedLayout />;
+  }
+
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" />
+    </Stack>
   );
 }
