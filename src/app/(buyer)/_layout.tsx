@@ -29,20 +29,20 @@ export default function BuyerLayout() {
         }}
       />
       <Tabs.Screen
-        name="search"
-        options={{
-          tabBarLabel: "Search",
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name={focused ? "search" : "search-outline"} color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="my-demands"
         options={{
           tabBarLabel: "My Demands",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name={focused ? "bag-handle" : "bag-handle-outline"} color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          tabBarLabel: "Search",
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? "search" : "search-outline"} color={color} size={size} />
           ),
         }}
       />
@@ -53,6 +53,18 @@ export default function BuyerLayout() {
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name={focused ? "person" : "person-outline"} color={color} size={size} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="create-demand"
+        options={{
+          href: null,
+        }}
+      />
+       <Tabs.Screen
+        name="demand/[id]"
+        options={{
+          href: null,
         }}
       />
     </Tabs>

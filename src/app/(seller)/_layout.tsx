@@ -29,20 +29,20 @@ export default function SellerLayout() {
         }}
       />
       <Tabs.Screen
-        name="search"
-        options={{
-          tabBarLabel: "Search",
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name={focused ? "search" : "search-outline"} color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="my-bids"
         options={{
           tabBarLabel: "My Bids",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name={focused ? "pricetags" : "pricetags-outline"} color={color} size={size} />
+          ),
+        }}
+      />
+        <Tabs.Screen
+        name="search"
+        options={{
+          tabBarLabel: "Search",
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? "search" : "search-outline"} color={color} size={size} />
           ),
         }}
       />
@@ -53,6 +53,12 @@ export default function SellerLayout() {
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name={focused ? "person" : "person-outline"} color={color} size={size} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="bid/[id]"
+        options={{
+          href: null,
         }}
       />
     </Tabs>
