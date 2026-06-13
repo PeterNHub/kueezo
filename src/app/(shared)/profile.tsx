@@ -1,11 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
-import { COLORS, FONT_SIZES } from "../../constants/theme";
+import { COLORS, FONT_FAMILIES, FONT_SIZES } from "../../constants/theme";
 
 export default function Profile() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Profile</Text>
       </View>
@@ -13,7 +11,7 @@ export default function Profile() {
         <Text style={styles.cardTitle}>John Doe</Text>
         <Text style={styles.cardEmail}>john.doe@example.com</Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Link, Stack } from "expo-router";
+import { Link } from "expo-router";
 import { Pressable, Text, View, StyleSheet, ScrollView } from "react-native";
 import { COLORS, FONT_SIZES, FONT_FAMILIES } from "../../constants/theme";
 
@@ -10,7 +10,7 @@ const ActiveRequest = ({ id }: { id: number }) => (
         <Ionicons name="pencil" size={24} color={COLORS.primary} />
       </View>
       <View>
-        <Text style={styles.activeRequestTitle}>Active Requests</Text>
+        <Text style={styles.activeRequestTitle}>My Demands</Text>
         <Text style={styles.activeRequestSubtitle}>Post 30 open demands</Text>
       </View>
       <Ionicons name="chevron-forward" size={24} color={COLORS.darkGray} />
@@ -28,20 +28,9 @@ const CategoryCard = ({ icon, label }: { icon: any; label: string }) => (
 export default function Dashboard() {
   return (
     <View style={styles.container}>
-      <Stack.Screen
-        options={{
-          headerTitle: "Kueezó",
-          headerTitleStyle: {
-            color: COLORS.primary,
-            fontFamily: FONT_FAMILIES.bold,
-            fontSize: FONT_SIZES.large,
-          },
-          headerLeft: () => <Ionicons name="menu" size={32} color={COLORS.black} style={{marginLeft: 10}}/>,
-          headerRight: () => <Ionicons name="notifications-outline" size={28} color={COLORS.black} style={{marginRight: 10}}/>,
-          headerStyle: { backgroundColor: COLORS.white },
-          headerShadowVisible: false,
-        }}
-      />
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Dashboard</Text>
+      </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
@@ -57,7 +46,7 @@ export default function Dashboard() {
 
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Active Requests</Text>
+            <Text style={styles.sectionTitle}>My Demands</Text>
             <Text style={styles.seeAll}>See All</Text>
           </View>
           <ActiveRequest id={1} />
@@ -76,8 +65,15 @@ export default function Dashboard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
-    backgroundColor: COLORS.white,
+    paddingHorizontal: 20,
+    backgroundColor: COLORS.gray,
+  },
+  header: {
+    marginVertical: 20,
+  },
+  headerTitle: {
+    fontSize: FONT_SIZES.large,
+    fontWeight: "bold",
   },
   section: {
     marginBottom: 24,

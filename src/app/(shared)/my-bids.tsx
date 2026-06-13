@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
-import { COLORS, FONT_SIZES } from "../../constants/theme";
+import { COLORS, FONT_FAMILIES, FONT_SIZES } from "../../constants/theme";
 
 export default function MyBids() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>My Bids</Text>
       </View>
@@ -19,7 +18,7 @@ export default function MyBids() {
           <Text style={styles.cardStatus}>Winning</Text>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

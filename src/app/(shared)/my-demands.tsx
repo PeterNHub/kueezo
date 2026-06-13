@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
-import { COLORS, FONT_SIZES } from "../../constants/theme";
+import { COLORS, FONT_FAMILIES, FONT_SIZES } from "../../constants/theme";
 
 export default function MyDemands() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>My Demands</Text>
       </View>
@@ -19,7 +18,7 @@ export default function MyDemands() {
           <Text style={styles.cardStatus}>Active</Text>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

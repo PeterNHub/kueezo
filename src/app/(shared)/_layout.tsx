@@ -1,28 +1,31 @@
 import { FontAwesome } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Tabs, Link } from "expo-router";
+import { Pressable, View } from "react-native";
 import { COLORS } from "../../constants/theme";
+import Header from "../../components/Header";
+
+const CustomTabBarButton = ({ children, onPress }) => (
+  <Link href="/create-demand" asChild>
+    <Pressable style={{ top: -20, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ width: 70, height: 70, borderRadius: 35, backgroundColor: COLORS.primary, justifyContent: 'center', alignItems: 'center' }}>
+        <FontAwesome name="plus" size={30} color={COLORS.white} />
+      </View>
+    </Pressable>
+  </Link>
+);
 
 export default function SharedLayout() {
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: COLORS.primary,
-        headerShown: true,
+        header: (props) => <Header {...props} />,
       }}
     >
       <Tabs.Screen
-        name="feed"
-        options={{
-          tabBarLabel: "Feed",
-          href: "/feed",
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="list-alt" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="dashboard"
         options={{
+          headerTitle: "Dashboard",
           tabBarLabel: "Dashboard",
           href: "/dashboard",
           tabBarIcon: ({ color, size }) => (
@@ -31,18 +34,27 @@ export default function SharedLayout() {
         }}
       />
       <Tabs.Screen
-        name="my-demands"
+        name="feed"
         options={{
-          tabBarLabel: "My Demands",
-          href: "/my-demands",
+          headerTitle: "Feed",
+          tabBarLabel: "Feed",
+          href: "/feed",
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="list" color={color} size={size} />
+            <FontAwesome name="list-alt" color={color} size={size} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="create-demand"
+        options={{
+          tabBarButton: (props) => <CustomTabBarButton {...props} />,
+          href: "/create-demand",
         }}
       />
       <Tabs.Screen
         name="my-bids"
         options={{
+          headerTitle: "My Bids",
           tabBarLabel: "My Bids",
           href: "/my-bids",
           tabBarIcon: ({ color, size }) => (
@@ -51,18 +63,9 @@ export default function SharedLayout() {
         }}
       />
       <Tabs.Screen
-        name="search"
-        options={{
-          tabBarLabel: "Search",
-          href: "/search",
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="search" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="profile"
         options={{
+          headerTitle: "Profile",
           tabBarLabel: "Profile",
           href: "/profile",
           tabBarIcon: ({ color, size }) => (
@@ -71,7 +74,7 @@ export default function SharedLayout() {
         }}
       />
       <Tabs.Screen
-        name="create-demand"
+        name="my-demands"
         options={{
           href: null,
         }}
@@ -84,6 +87,12 @@ export default function SharedLayout() {
       />
       <Tabs.Screen
         name="bid/[id]"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="demand/[id]"
         options={{
           href: null,
         }}

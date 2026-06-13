@@ -1,15 +1,17 @@
 import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 
 import { COLORS, FONT_SIZES } from "../../constants/theme";
 
 export default function Feed() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Seller Feed</Text>
         <Text style={styles.headerSubtitle}>Open demands</Text>
+      </View>
+      <View style={styles.searchContainer}>
+        <TextInput style={styles.searchInput} placeholder="Search for demands" />
       </View>
       <View style={styles.card}>
         <View style={styles.cardHeader}>
@@ -25,11 +27,11 @@ export default function Feed() {
           <Text style={styles.cardTimerText}>55</Text>
         </View>
         <View style={styles.cardFooter}>
-          <Link href="/(shared)/search" style={styles.cardButtonSecondary}>
-            Usech now!
+          <Link href="/(shared)/demand/1" style={styles.cardButtonSecondary}>
+            Details
           </Link>
-          <Link href="/(shared)/search" style={styles.cardButtonPrimary}>
-            Open foad
+          <Link href="/(shared)/demand/1" style={styles.cardButtonPrimary}>
+            Bid Now
           </Link>
         </View>
       </View>
@@ -48,15 +50,15 @@ export default function Feed() {
           <Text style={styles.cardTimerText}>33</Text>
         </View>
         <View style={styles.cardFooter}>
-          <Link href="/(shared)/search" style={styles.cardButtonSecondary}>
-            Watch now!
+          <Link href="/(shared)/demand/1" style={styles.cardButtonSecondary}>
+            Details
           </Link>
-          <Link href="/(shared)/search" style={styles.cardButtonPrimary}>
-            Open foad
+          <Link href="/(shared)/demand/1" style={styles.cardButtonPrimary}>
+            Bid Now
           </Link>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -77,6 +79,15 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZES.medium,
     color: COLORS.darkGray,
     marginTop: 5,
+  },
+  searchContainer: {
+    backgroundColor: COLORS.white,
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 20,
+  },
+  searchInput: {
+    fontSize: FONT_SIZES.medium,
   },
   card: {
     backgroundColor: COLORS.white,
